@@ -197,6 +197,9 @@ sdbFullPolicy = dict(Version="2012-10-17", Statement=[
 iamFullPolicy = dict(Version="2012-10-17", Statement=[
     dict(Effect="Allow", Resource="*", Action="iam:*")])
 
+ecrReadOnlyPolicy = dict(Version="2012-10-17", Statement=[
+    dict(Effect="Allow", Resource="*", Action=["ecr:Get*","ecr:List*","ecr:Describe*","ecr:BatchGetImage","ecr:BatchCheckLayerAvailability"])])
+
 def checkValidNodeTypes(provisioner, nodeTypes):
     """
     Raises if an invalid nodeType is specified for aws, azure, or gce.
